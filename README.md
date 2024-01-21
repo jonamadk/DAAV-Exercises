@@ -1,2 +1,2 @@
 # DAAV-Exercises
-The repo for analytics and visualization class exercises.
+This repo holds the data analytics and visualization class exercises.
