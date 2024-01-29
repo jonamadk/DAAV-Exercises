@@ -51,7 +51,11 @@ def descriptive_stat():
     print("\n")
 
     
+    #Calculate Variance and Standard Deviation
+    print("Salary Variance", salary.var())
+    print("Salary Standard deviation", salary.std())
     
+    #Histogram and Scatter Plot Visualization
     dataframe.hist(column='prestige', bins=5, edgecolor='black')
     plt.title("Presitge Distribution")
     dataframe.hist(column='education', bins=5, edgecolor='black')
@@ -61,7 +65,7 @@ def descriptive_stat():
     dataframe.plot.scatter("education", "prestige")
     plt.title("Education vs Salary")
     plt.show()
-
+    
     
     
 descriptive_stat()
