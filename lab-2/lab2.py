@@ -5,6 +5,7 @@ import matplotlib.pyplot as plt
 
 
 
+
 def descriptive_stat():
 
     """
@@ -13,9 +14,7 @@ def descriptive_stat():
     
     """
     dataframe = pd.read_csv('Salary Data - Ex2.csv')
-    
     salary, education, prestige = dataframe['salary'], dataframe['education'], dataframe['prestige']
-    
     
     #Salary Descriptive insights
     salary_percentiles = np.percentile(salary, [0, 25, 50, 75,100], interpolation= "linear")
@@ -27,7 +26,6 @@ def descriptive_stat():
     print("Salary Maximum value",salary_percentiles[4])
     print("\n")
 
-    
     
     # Education Descriptive insights
     education_percentiles = np.percentile(education, [0, 25, 50, 75,100], interpolation= "linear")
@@ -56,14 +54,14 @@ def descriptive_stat():
     print("Salary Standard deviation", salary.std())
     
     #Histogram and Scatter Plot Visualization
-    dataframe.hist(column='prestige', bins=5, edgecolor='black')
+    dataframe.hist(column='prestige', edgecolor='black')
     plt.title("Presitge Distribution")
-    dataframe.hist(column='education', bins=5, edgecolor='black')
+    dataframe.hist(column='education', edgecolor='black')
     plt.title("Education Distribution")
     dataframe.plot.scatter("salary", "education")
     plt.title("Salary vs Education")
     dataframe.plot.scatter("education", "prestige")
-    plt.title("Education vs Salary")
+    plt.title("Education vs Prestige")
     plt.show()
     
     
