@@ -10,18 +10,21 @@ salary, education, prestige = dataframe['salary'], dataframe['education'], dataf
 
 
 #Covariance for salary and education.
-print(f"Covariance of Salary and Education is {salary.cov(education)}")
-print(f"Covariance of Salary and Prestige is {salary.cov(prestige)}")
-print(f"Covariance of Education and Prestige is {education.cov(prestige)}")
+print(f"Covariance of Salary and Education is {salary.cov(education)}\n")
+#Covariance for salary and prestige.
+print(f"Covariance of Salary and Prestige is {salary.cov(prestige)}\n")
+#Covariance for education and prestige .
+print(f"Covariance of Education and Prestige is {education.cov(prestige)}\n")
 
 
 # Pearson’s correlation coefficients and the p-values for salary and education.
-
 salary_education_r_value, salary_education_p_value = stat.pearsonr(salary, education)
-print(f"Pearson correlation coefficients is {salary_education_r_value} and p-values is {salary_education_p_value}" )
+print(f"Pearson correlation coefficients is {salary_education_r_value} and p-values is {salary_education_p_value}\n" )
 
+# Pearson’s correlation coefficients and the p-values for salary and prestige.
 salary_prestige_r_value, salary_prestige_p_value = stat.pearsonr(salary, prestige)
-print(f"Pearson correlation coefficients is {salary_prestige_r_value} and p-values is {salary_prestige_p_value}" )
+print(f"Pearson correlation coefficients is {salary_prestige_r_value} and p-values is {salary_prestige_p_value}\n" )
 
+# Pearson’s correlation coefficients and the p-values for education and prestige.
 education_prestige_r_value, education_prestige_p_value = stat.pearsonr(education, prestige)
-print(f"Pearson correlation coefficients is {education_prestige_r_value} and p-values is {education_prestige_p_value}" )
+print(f"Pearson correlation coefficients is {education_prestige_r_value} and p-values is {education_prestige_p_value}\n" )
