@@ -36,6 +36,9 @@ print(f"Percentage of the data has no errors (i.e., rows that don’t violate th
 
 
 #3. Correcting
+
+
+incomeDataframe['gender'] = incomeDataframe['gender'].fillna(pd.Series(np.random.choice(['Male', 'Female'],size=len(incomeDataframe.index))))
 incomeDataframe['gender'] = incomeDataframe['gender'].apply(lambda gender: 'Male' if(gender == 'Man' or gender == 'Men') else 'Female' if (gender == "Women" or gender =="Woman") else gender)
 
 
@@ -49,9 +52,9 @@ incomeDataframe['income'] = np.where(incomeDataframe['income'].isna() & incomeDa
 incomeDataframe['tax (15%)'] = np.where(incomeDataframe['tax (15%)'].isna() & incomeDataframe['income'].notnull(), incomeDataframe['income']*.15, incomeDataframe['tax (15%)'])
 
 
-
+print("Descriptive summary of data before imputatuin\n")
 print(incomeDataframe.describe(pd.set_option('display.float_format', lambda x: '%.4f' % x)).rename(index={'25%': '1st Qua', '50%': 'Median', '75%': '3rd Qua'}),"\n")
-print("Missing Values Count Before Imputation ")
+print("Missing Values Count before Imputation ")
 print(incomeDataframe.isna().sum(),"\n")
 
 
@@ -59,6 +62,7 @@ label_encoder = LabelEncoder()
 standard_scaler = StandardScaler()
 
 
+data_before_imputattion = incomeDataframe
 
 categorical_columns = incomeDataframe.select_dtypes(include=['object']).columns
 
@@ -81,10 +85,14 @@ finalIncomeDataset = pd.DataFrame(data= complete_income_df, columns = incomeData
 finalIncomeDataset.index.name = "ID"
 
 
-
+print("Descriptive summary of data after imputatuin\n")
 print(finalIncomeDataset.describe().rename(index={'25%': '1st Qua', '50%': 'Median', '75%': '3rd Qua'}),"\n")
 print("Missing Values Count After Imputation ")
 print(finalIncomeDataset.describe().isna().sum())
 
+
+
+# print(incomeDataframe.describe())
+# print(finalIncomeDataset.describe())
 
 
