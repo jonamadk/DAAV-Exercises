@@ -12,39 +12,39 @@ colors = np.array([0.1,0.6,0.8])
 area = np.pi*3
 
 
-plt.scatter(album_dataframe.totalsales, album_dataframe.AdvertBudget, s=area, c=colors,alpha=0.5)
+plt.scatter(album_dataframe.totalsales, album_dataframe.AdvertBudget, s=area, color=colors,alpha=0.5)
 plt.title('Sales Vs. Advertising')
 plt.xlabel('Sales')
 plt.ylabel('Advertising')
 # plt.show()
 
-plt.scatter(album_dataframe.totalsales, album_dataframe.AirplayTimes, s=area, c=colors,alpha=0.5)
+plt.scatter(album_dataframe.totalsales, album_dataframe.AirplayTimes, s=area, color=colors,alpha=0.5)
 plt.title('Sales Vs. Airplay')
 plt.xlabel('Sales')
 plt.ylabel('Airplay')
 # plt.show()
 
-plt.scatter(album_dataframe.totalsales, album_dataframe.AttractivenessScore, s=area, c=colors,alpha=0.5)
+plt.scatter(album_dataframe.totalsales, album_dataframe.AttractivenessScore, s=area, color=colors,alpha=0.5)
 plt.title('Sales Vs. Attractiveness')
 plt.xlabel('Sales')
 plt.ylabel('Attractiveness')
 # plt.show()
 
 
-lm1 = smf.ols(formula='totalsales ~ AdvertBudget', data=album_dataframe).fit()
+linear_model_1 = smf.ols(formula='totalsales ~ AdvertBudget', data=album_dataframe).fit()
 print("\n Linear Regression p-value and summary")
-print(lm1.pvalues.to_string())
-print(lm1.summary())
+print(linear_model_1.pvalues.to_string())
+print(linear_model_1.summary())
 
 
 
-print(f"\n Model parameters:\n {lm1.params.to_string()}")
+print(f"\nLinear Regression Model parameters:\n {linear_model_1.params.to_string()}")
 print("\nEstimation for the $135,000 in Advert")
-print(lm1.params[0]+ lm1.params[1]*135000)
+print(linear_model_1.params.iloc[0]+ linear_model_1.params.iloc[1]*135000,"\n")
 
 
 
-lm2= smf.ols(formula='totalsales ~ AdvertBudget + AirplayTimes + AttractivenessScore',data=album_dataframe).fit()
+linear_model_2= smf.ols(formula='totalsales ~ AdvertBudget + AirplayTimes + AttractivenessScore',data=album_dataframe).fit()
 print("Multi-Variable linear Regression p-values and Summary")
-print(lm2.pvalues.to_string())
-print(lm2.summary())
+print(linear_model_2.pvalues.to_string())
+print(linear_model_2.summary())
