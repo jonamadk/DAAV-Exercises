@@ -54,25 +54,14 @@ dt_clf = DecisionTreeClassifier()
 dt_clf = dt_clf.fit(X_train, y_train)
 y_pred = dt_clf.predict(X_test)
 
-
-
 print("Confusion Matrix for Decision Tree:\n",confusion_matrix(y_test, y_pred))
 print("Accuracy Decision Tree:\n",classification_report(y_test, y_pred))
-
-# Generate confusion matrix
-conf_matrix = confusion_matrix(y_test, y_pred)
 
 
 #Naive Bayes Classifier
 nb_model = GaussianNB()
 nb_model = nb_model.fit(X_train, y_train)
-
 y_pred = nb_model.predict(X_test)
 
 print("Confusion Matrix for NB:\n", confusion_matrix(y_test, y_pred))
 print("Accuracy NB:\n",classification_report(y_test, y_pred))
-
-# Generate confusion matrix
-conf_matrix = confusion_matrix(y_test, y_pred)
-
-print(conf_matrix)
