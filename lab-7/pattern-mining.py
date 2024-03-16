@@ -28,6 +28,6 @@ print(f"\nNumber of unique rules is {len(optimal_filtered_results)}\n")
 #Sortinf based on Lift value
 sorted_results = sorted(optimal_filtered_results, key=lambda x: x.lift, reverse= True)
 
-print("Final Result:\n")
+print("Final Result: \n")
 for result in sorted_results:
     print(str(result))
