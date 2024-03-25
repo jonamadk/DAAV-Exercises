@@ -5,7 +5,6 @@ from scipy.stats.contingency import  margins
 
 
 
-
 americanDataframe = pd.read_csv("Americandata.csv")
 
 print("\n 1. Reading Dataframe:")
@@ -13,10 +12,10 @@ print(americanDataframe)
 
 stat, p, dof, expected = chi2_contingency(americanDataframe.iloc[:,1:].values)
 
-print("\n 2. The chi2 results\n")
+print("\n 2. The Chi-Square result:\n")
 print("dof=%d" % dof)
-print("p=%s" %p)
-print("stat=%s" % stat)
+print("p-value=%s" %p)
+print("Chi-Square statistics=%s" % stat)
 print("\nExpected Values")
 print(expected)
 
@@ -30,7 +29,6 @@ def stdres(observed, expected):
     v = csum * rsum * (n - rsum) * (n - csum)/ n**3
 
     return (observed - expected) / np.sqrt(v)
-
 
 
 print("\n3. The standardized residuals")
